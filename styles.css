@@ -1,0 +1,44 @@
+body {
+  background-color: #f0f8ff; /* Light background for contrast */
+  color: #333333; /* Dark grey for easy readability */
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50; /* Slightly darker green for better readability */
+  color: #ffffff; /* White text on buttons for high contrast */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049; /* Darker green for hover effect */
+}
+
+.hidden {
+  display: none;
+}
+
+#scenario, #feedback {
+  margin-top: 20px;
+  color: #333333; /* Ensures all text is dark grey for readability */
+}
+
+h1 {
+  color: #222222; /* Darker color for the main title */
+  font-size: 36px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #333333;
+}
