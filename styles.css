@@ -1,12 +1,20 @@
 body {
-  background-color: #f0f8ff; /* Light background for contrast */
-  color: #333333; /* Dark grey for easy readability */
-  text-align: center;
+  background-color: #f0f8ff;
+  color: #333333;
   font-family: Arial, sans-serif;
+  margin: 0;
+  display: flex; /* Enables Flexbox layout */
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  min-height: 100vh; /* Sets body height to at least the viewport height */
 }
 
 .container {
-  margin-top: 50px;
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 button {
@@ -34,7 +42,7 @@ button:hover {
 
 h1 {
   color: #222222; /* Darker color for the main title */
-  font-size: 36px;
+  font-size: 48px;
 }
 
 p {
