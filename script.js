@@ -3,41 +3,30 @@ const emergencies = [
   'a fire', 
   'an earthquake', 
   'a volcano', 
-  'a meteor shower', 
   'a dragon', 
   'a dinosaur', 
   'a bear', 
   'a wolf', 
   'a monster', 
-  'a pirate invasion', 
-  'a runaway train', 
-  'a spaceship crash', 
-  'a tornado', 
-  'a robot uprising'
+  'pirates', 
+  'a bad robot'
 ];
 
 const locations = [
   'in the kitchen', 
   'in the living room', 
-  'on the moon', 
-  'in space', 
   'in the bathroom', 
   'in the garden', 
-  'in your room', 
-  'on a pirate ship', 
-  'inside a volcano', 
-  'at the North Pole', 
-  'in an underwater cave', 
-  'on top of a mountain', 
-  'on a desert island'
+  'in your room'
 ];
 
 const rescueTargets = [
   'the princess', 
+  'the baby',
   'the baby bear', 
-  'the missing treasure', 
+  'the treasure', 
   'the baby dinosaur', 
-  'the cute aliens'
+  'the baby aliens'
 ]
 
 function getRandomItem(array) {
