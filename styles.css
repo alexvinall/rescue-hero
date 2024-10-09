@@ -7,7 +7,7 @@ body {
   flex-direction: column;
   justify-content: center; /* Centers content horizontally */
   align-items: center; /* Centers content vertically */
-  min-height: 50vh; 
+  min-height: 100vh; 
 }
 
 .container {
@@ -16,6 +16,8 @@ body {
   padding: 20px;
   box-sizing: border-box;
   text-align: center;
+  min-height: auto;
+  flex: 1
 }
 
 .logo {
