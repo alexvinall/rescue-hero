@@ -30,7 +30,11 @@ const rescueTargets = [
 ];
 
 const CELEBRATION_DURATION_MS = 2000;
+const CELEBRATION_COOLDOWN_MS = 1000;
 const CELEBRATION_COLORS = ['#ff5ca8', '#4cc9f0', '#ffd23f', '#84e166', '#ff8c42', '#9b5de5'];
+
+let lastCelebrationAt = 0;
+let celebrationMultiplier = 1;
 
 function getRandomItem(array) {
   return array[Math.floor(Math.random() * array.length)];
@@ -50,11 +54,14 @@ function generateScenario() {
   document.getElementById('rescueButton').classList.remove('mission-complete');
 }
 
-function launchCelebration(buttonElement) {
+function launchCelebration(buttonElement, multiplier) {
   const celebrationLayer = document.createElement('div');
   celebrationLayer.className = 'celebration-layer';
 
-  for (let i = 0; i < 35; i += 1) {
+  const confettiCount = 35 * multiplier;
+  const balloonCount = 12 * multiplier;
+
+  for (let i = 0; i < confettiCount; i += 1) {
     const confetti = document.createElement('span');
     confetti.className = 'confetti-piece';
     confetti.style.left = `${Math.random() * 100}%`;
@@ -68,7 +75,7 @@ function launchCelebration(buttonElement) {
   const buttonRect = buttonElement.getBoundingClientRect();
   const originY = buttonRect.top + (buttonRect.height / 2);
 
-  for (let i = 0; i < 12; i += 1) {
+  for (let i = 0; i < balloonCount; i += 1) {
     const balloon = document.createElement('span');
     balloon.className = 'balloon';
     const originX = buttonRect.left + (Math.random() * buttonRect.width);
@@ -95,9 +102,17 @@ function rescue() {
 
   const rescueButton = document.getElementById('rescueButton');
 
+  const now = Date.now();
+  if (now - lastCelebrationAt <= CELEBRATION_COOLDOWN_MS) {
+    celebrationMultiplier *= 2;
+  } else {
+    celebrationMultiplier = 1;
+  }
+  lastCelebrationAt = now;
+
   document.getElementById('feedback').classList.remove('hidden');
   rescueButton.classList.add('mission-complete');
-  launchCelebration(rescueButton);
+  launchCelebration(rescueButton, celebrationMultiplier);
 }
 
 function showInstructions() {
