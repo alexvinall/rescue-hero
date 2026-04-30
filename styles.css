@@ -77,6 +77,10 @@ button:hover {
   z-index: 1000;
 }
 
+.overlay.hidden {
+  display: none;
+}
+
 .overlay-content {
   background: #ffffff;
   max-width: 760px;
@@ -94,6 +98,11 @@ button:hover {
 .overlay-content li {
   font-size: clamp(18px, 3.5vw, 34px);
   margin-bottom: 10px;
+}
+
+#closeInstructionsButton {
+  display: block;
+  margin: 24px auto 0;
 }
 
 h1 {
