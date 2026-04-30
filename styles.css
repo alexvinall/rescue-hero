@@ -170,6 +170,7 @@ button:hover {
 .overlay-content h2 {
   margin-top: 0;
   font-size: clamp(22px, 3vw, 34px);
+  text-align: center;
 }
 
 .overlay-content li {

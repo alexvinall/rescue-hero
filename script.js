@@ -35,6 +35,7 @@ const CELEBRATION_COLORS = ['#ff5ca8', '#4cc9f0', '#ffd23f', '#84e166', '#ff8c42
 
 let lastCelebrationAt = 0;
 let celebrationMultiplier = 1;
+const MAX_CELEBRATION_MULTIPLIER = 4;
 
 function getRandomItem(array) {
   return array[Math.floor(Math.random() * array.length)];
@@ -104,7 +105,7 @@ function rescue() {
 
   const now = Date.now();
   if (now - lastCelebrationAt <= CELEBRATION_COOLDOWN_MS) {
-    celebrationMultiplier *= 2;
+    celebrationMultiplier = Math.min(celebrationMultiplier * 2, MAX_CELEBRATION_MULTIPLIER);
   } else {
     celebrationMultiplier = 1;
   }
