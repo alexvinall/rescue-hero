@@ -34,7 +34,7 @@ body {
 
 button {
   padding: 10px 20px;
-  font-size: clamp(18px, 4vw, 48px);
+  font-size: clamp(16px, 2.2vw, 28px);
   background-color: #4CAF50; /* Slightly darker green for better readability */
   color: #ffffff; /* White text on buttons for high contrast */
   border: none;
@@ -43,10 +43,10 @@ button {
 }
 
 .help-button {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  font-size: 32px;
+  font-size: 24px;
   line-height: 1;
   padding: 0;
 }
@@ -92,11 +92,11 @@ button:hover {
 
 .overlay-content h2 {
   margin-top: 0;
-  font-size: clamp(24px, 5vw, 48px);
+  font-size: clamp(22px, 3vw, 34px);
 }
 
 .overlay-content li {
-  font-size: clamp(18px, 3.5vw, 34px);
+  font-size: clamp(16px, 2vw, 24px);
   margin-bottom: 10px;
 }
 
@@ -106,15 +106,15 @@ button:hover {
 }
 
 h1 {
-  font-size: clamp(24px, 8vw, 96px); /* Adjusts fluidly between 24px and 48px */
+  font-size: clamp(28px, 4vw, 56px);
   color: #222222;
   text-align: center;
   margin-top: 20px;
 }
 
 p {
-  font-size: clamp(18px, 4vw, 48px);
-  line-height: 1.5;
+  font-size: clamp(18px, 2.4vw, 32px);
+  line-height: 1.4;
   color: #333333;
 }
 
