@@ -219,13 +219,8 @@ footer p {
   }
 
   .container {
-    position: relative;
     padding: 12px;
     min-height: 100svh;
-  }
-
-  .top-bar {
-    display: none;
   }
 
   .logo {
@@ -251,15 +246,6 @@ footer p {
     padding: 12px 20px;
   }
 
-  .help-button {
-    position: absolute;
-    top: 12px;
-    right: calc(50% - 25vw + 8px);
-    font-size: 24px;
-    width: 44px;
-    height: 44px;
-    z-index: 1;
-  }
 
   #scenario,
   #feedback {
