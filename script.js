@@ -50,7 +50,7 @@ function generateScenario() {
   document.getElementById('rescueButton').classList.remove('mission-complete');
 }
 
-function launchCelebration() {
+function launchCelebration(buttonElement) {
   const celebrationLayer = document.createElement('div');
   celebrationLayer.className = 'celebration-layer';
 
@@ -65,13 +65,20 @@ function launchCelebration() {
     celebrationLayer.appendChild(confetti);
   }
 
-  for (let i = 0; i < 10; i += 1) {
+  const buttonRect = buttonElement.getBoundingClientRect();
+  const originX = buttonRect.left + (buttonRect.width / 2);
+  const originY = buttonRect.top + (buttonRect.height / 2);
+
+  for (let i = 0; i < 12; i += 1) {
     const balloon = document.createElement('span');
     balloon.className = 'balloon';
-    balloon.style.left = `${6 + Math.random() * 88}%`;
+    balloon.style.left = `${originX}px`;
+    balloon.style.top = `${originY}px`;
     balloon.style.backgroundColor = getRandomItem(CELEBRATION_COLORS);
-    balloon.style.animationDelay = `${Math.random() * 0.4}s`;
-    balloon.style.animationDuration = `${1.5 + Math.random() * 0.5}s`;
+    balloon.style.animationDelay = `${Math.random() * 0.25}s`;
+    balloon.style.animationDuration = `${1.7 + Math.random() * 0.5}s`;
+    balloon.style.setProperty('--balloon-drift-x', `${-120 + Math.random() * 240}px`);
+    balloon.style.setProperty('--balloon-pop-in-scale', `${0.8 + Math.random() * 0.35}`);
     celebrationLayer.appendChild(balloon);
   }
 
@@ -86,9 +93,11 @@ function rescue() {
   const rescued = document.getElementById('rescueTarget').textContent;
   document.getElementById('rescued').textContent = rescued;
 
+  const rescueButton = document.getElementById('rescueButton');
+
   document.getElementById('feedback').classList.remove('hidden');
-  document.getElementById('rescueButton').classList.add('mission-complete');
-  launchCelebration();
+  rescueButton.classList.add('mission-complete');
+  launchCelebration(rescueButton);
 }
 
 function showInstructions() {
