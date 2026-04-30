@@ -7,6 +7,9 @@
 </head>
 <body>
   <div class="container">
+    <div class="top-bar">
+      <button id="helpButton" class="help-button" aria-label="How to play">?</button>
+    </div>
     <img src="images/rescue-hero-logo.webp" alt="Emergency Rescue Logo" class="logo">
     <h1>Rescue Hero!</h1>
     <button id="startButton">Start Mission</button>
@@ -20,6 +23,19 @@
       <p>Hooray! You rescued <span id="rescued"></span>!</p>
     </div>
   </div>
+
+  <div id="instructionsOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="instructionsTitle">
+    <div class="overlay-content">
+      <h2 id="instructionsTitle">How to Play Rescue Hero</h2>
+      <ol>
+        <li>Randomly generate a mission.</li>
+        <li>Go and play it with your kids! Act the hero, save the day and celebrate together.</li>
+        <li>Complete the mission in Rescue Hero.</li>
+      </ol>
+      <button id="closeInstructionsButton">Close</button>
+    </div>
+  </div>
+
   <script src="script.js"></script>
   <footer>
     <p>Created by Jessica Vinall aged 3, with help from Alex Vinall aged 33</p>

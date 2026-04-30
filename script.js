@@ -1,33 +1,33 @@
 const emergencies = [
-  'a flood', 
-  'a fire', 
-  'an earthquake', 
-  'a volcano', 
-  'a dragon', 
-  'a dinosaur', 
-  'a bear', 
-  'a wolf', 
-  'a monster', 
-  'pirates', 
+  'a flood',
+  'a fire',
+  'an earthquake',
+  'a volcano',
+  'a dragon',
+  'a dinosaur',
+  'a bear',
+  'a wolf',
+  'a monster',
+  'pirates',
   'a bad robot'
 ];
 
 const locations = [
-  'in the kitchen', 
-  'in the living room', 
-  'in the bathroom', 
-  'in the garden', 
+  'in the kitchen',
+  'in the living room',
+  'in the bathroom',
+  'in the garden',
   'in your room'
 ];
 
 const rescueTargets = [
-  'the princess', 
+  'the princess',
   'the baby',
-  'the baby bear', 
-  'the treasure', 
-  'the baby dinosaur', 
+  'the baby bear',
+  'the treasure',
+  'the baby dinosaur',
   'the baby aliens'
-]
+];
 
 function getRandomItem(array) {
   return array[Math.floor(Math.random() * array.length)];
@@ -53,5 +53,15 @@ function rescue() {
   document.getElementById('feedback').classList.remove('hidden');
 }
 
+function showInstructions() {
+  document.getElementById('instructionsOverlay').classList.remove('hidden');
+}
+
+function hideInstructions() {
+  document.getElementById('instructionsOverlay').classList.add('hidden');
+}
+
 document.getElementById('startButton').addEventListener('click', generateScenario);
 document.getElementById('rescueButton').addEventListener('click', rescue);
+document.getElementById('helpButton').addEventListener('click', showInstructions);
+document.getElementById('closeInstructionsButton').addEventListener('click', hideInstructions);
