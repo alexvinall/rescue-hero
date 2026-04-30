@@ -257,4 +257,9 @@ footer p {
     font-size: 10px;
     padding: 8px 0;
   }
+
+  footer p {
+    font-size: 10px;
+    line-height: 1.2;
+  }
 }
