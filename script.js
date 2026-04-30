@@ -29,6 +29,9 @@ const rescueTargets = [
   'the baby aliens'
 ];
 
+const CELEBRATION_DURATION_MS = 2000;
+const CELEBRATION_COLORS = ['#ff5ca8', '#4cc9f0', '#ffd23f', '#84e166', '#ff8c42', '#9b5de5'];
+
 function getRandomItem(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
@@ -44,6 +47,39 @@ function generateScenario() {
 
   document.getElementById('scenario').classList.remove('hidden');
   document.getElementById('feedback').classList.add('hidden');
+  document.getElementById('rescueButton').classList.remove('mission-complete');
+}
+
+function launchCelebration() {
+  const celebrationLayer = document.createElement('div');
+  celebrationLayer.className = 'celebration-layer';
+
+  for (let i = 0; i < 35; i += 1) {
+    const confetti = document.createElement('span');
+    confetti.className = 'confetti-piece';
+    confetti.style.left = `${Math.random() * 100}%`;
+    confetti.style.backgroundColor = getRandomItem(CELEBRATION_COLORS);
+    confetti.style.animationDelay = `${Math.random() * 0.3}s`;
+    confetti.style.animationDuration = `${1.4 + Math.random() * 0.6}s`;
+    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+    celebrationLayer.appendChild(confetti);
+  }
+
+  for (let i = 0; i < 10; i += 1) {
+    const balloon = document.createElement('span');
+    balloon.className = 'balloon';
+    balloon.style.left = `${6 + Math.random() * 88}%`;
+    balloon.style.backgroundColor = getRandomItem(CELEBRATION_COLORS);
+    balloon.style.animationDelay = `${Math.random() * 0.4}s`;
+    balloon.style.animationDuration = `${1.5 + Math.random() * 0.5}s`;
+    celebrationLayer.appendChild(balloon);
+  }
+
+  document.body.appendChild(celebrationLayer);
+
+  setTimeout(() => {
+    celebrationLayer.remove();
+  }, CELEBRATION_DURATION_MS);
 }
 
 function rescue() {
@@ -51,6 +87,8 @@ function rescue() {
   document.getElementById('rescued').textContent = rescued;
 
   document.getElementById('feedback').classList.remove('hidden');
+  document.getElementById('rescueButton').classList.add('mission-complete');
+  launchCelebration();
 }
 
 function showInstructions() {

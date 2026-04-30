@@ -42,6 +42,19 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  background-color: #45a049; /* Darker green for hover effect */
+}
+
+#rescueButton.mission-complete {
+  background: linear-gradient(135deg, #ffd700, #ffb703);
+  color: #5f3b00;
+}
+
+#rescueButton.mission-complete:hover {
+  background: linear-gradient(135deg, #ffdc42, #ffbf3f);
+}
+
 .help-button {
   width: 48px;
   height: 48px;
@@ -51,10 +64,6 @@ button {
   padding: 0;
 }
 
-button:hover {
-  background-color: #45a049; /* Darker green for hover effect */
-}
-
 .hidden {
   display: none;
 }
@@ -62,6 +71,70 @@ button:hover {
 #scenario, #feedback {
   margin-top: 20px;
   color: #333333; /* Ensures all text is dark grey for readability */
+}
+
+.celebration-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1500;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -20px;
+  width: 14px;
+  height: 18px;
+  border-radius: 4px;
+  opacity: 0.95;
+  animation-name: confetti-fall;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.balloon {
+  position: absolute;
+  bottom: -90px;
+  width: 42px;
+  height: 54px;
+  border-radius: 50% 50% 46% 46%;
+  box-shadow: inset -7px -11px rgba(255, 255, 255, 0.25);
+  animation-name: balloon-rise;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50px;
+  width: 2px;
+  height: 26px;
+  background-color: rgba(80, 80, 80, 0.4);
+}
+
+@keyframes confetti-fall {
+  from {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes balloon-rise {
+  from {
+    transform: translateY(0) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-115vh) scale(1.05);
+    opacity: 0;
+  }
 }
 
 .overlay {
